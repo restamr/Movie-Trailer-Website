@@ -1,10 +1,10 @@
-# Movie-Trailer-Website
-this application store a list of your favorite movies, including box art imagery and a movie trailer URL 
-and generate a static web page allowing visitors to browse their movies and watch the trailers
-## Installation instructions
-1. Install [Python](https://www.python.org/)
-2. download the [project files](https://github.com/restamr/Movie-Trailer-Website)
-3. ensure they are all in the same folder
-4. using the terminal (command-prompt for windows), navigate to the folder
-5. run the command python entertainment_center.py
-6. enjoy the generated webpage
+# logs analysis project
+an internal reporting tool that will use information from the database to discover what kind of articles the site's readers like.
+## Requirments
+1. bring the virtual machine back online
+2. create the follwing view that count the amount of access for each article (create or replace view articlesaccesscount as select count(*) as count,REPLACE(path,'/article/','') as article from log where path <>'/' group by path;
+)
+3. create the follwing view that combine each author with his article (create or replace view authorwitharticle as select authors.name,articles.slug as title from authors ,articles where authors.id=articles.author)
+4. create the follwing view that count the amount of requset error happened each day ( create view countrequestwitherror as select count(*),date(time) as date from log where status like '%404%' group by date(time))
+5. run the command python newsdb_solved.py
+
